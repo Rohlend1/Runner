@@ -24,7 +24,7 @@ public class Box extends AbstractObject{ // класс коробок
     public void run(){ // задаем начальное положение коробок и запускаем их в персонажа
         if(x <= -100) {
             x = START_X;
-            y = (int)(Math.random()*640);
+            y = (int)(Math.random()*660);
         }
         x+=HORIZONTAL_SPEED;
     }

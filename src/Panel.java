@@ -31,8 +31,6 @@ public class Panel extends JPanel {
         jButton.addActionListener(e-> reset());
         jButton.setVisible(false);
         add(jButton);
-
-
     }
 
     @Override

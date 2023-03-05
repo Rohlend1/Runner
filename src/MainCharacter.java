@@ -57,11 +57,11 @@ public class MainCharacter extends AbstractObject{ // реализация иг�
 
     public void isDead(){   //проверка на столкновение с коробкой
         for(Box box : BoxController.getBoxes()){
-            if(((box.x + BoxController.getWidth() >= this.x && box.x+BoxController.getWidth() <= this.x+WIDTH)|| //здесь тоже можешь потыкать +- значения чтобы более точно текстуры соприкасались
-                    (box.x <= this.x && box.x >= this.x+WIDTH)) &&                                               //
-                    ((box.y <= this.y + HEIGHT && box.y >= this.y)||                                             //
-                    (box.y+BoxController.getHeight() <= this.y + HEIGHT &&
-                            box.y+BoxController.getHeight() >= this.y))) {
+            if((( this.x <= box.x + BoxController.getWidth() - 45 && box.x + 30 <= this.x)||
+                    (box.x + 30 <= this.x + WIDTH - 40 && box.x + BoxController.getWidth() - 45 >= this.x+WIDTH - 40)) &&
+                    ((box.y <= this.y && box.y + BoxController.getHeight() >=this.y)||
+                    (box.y + BoxController.getHeight() >= this.y + HEIGHT - 20 &&
+                            box.y <= this.y + HEIGHT - 20))) {
                 Alive = false;
                 return;
             }
@@ -91,16 +91,16 @@ public class MainCharacter extends AbstractObject{ // реализация иг�
     }
 
     public void jump(){//реализуем логику прыжка
-        if((y == START_Y || onBox) && Alive) {
+//        if((y == START_Y || onBox) && Alive) {
             onJump = true;
             jumpPosY = y;
             y += VERTICAL_SPEED;
-        }
+//        }
     }
 
 
     public void teleport(){ // телепорт, сделан чисто по приколу, чтобы как-то реализовать приседания персонажа (у меня просто не было анимации)
-        x += 150;
+        x += 350;
     }
 
     @Override
